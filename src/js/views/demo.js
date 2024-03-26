@@ -14,32 +14,27 @@ export const Demo = () => {
 
 	const handleSubmit = e =>
 		e.preventDefault();//este no siempre hace falta con React
-		console.log(fullname);
+		actions.createContact(fullname, emailAddress, streetAddress, phoneNumber);
 
-
-
-
-		/* actions.addContact(fullname,emailAddress,phoneNumber,streetAddress);
+		// NO VEO INFORMACION CON EL CONSOLE.LOG...
+		/* console.log(fullname); 'Hola' */
+		actions.addContact(fullname,emailAddress,phoneNumber,streetAddress);
 		setFullName("");//limpiar input
 		setEmailAddress("");
 		setPhoneNumber("");
-		setStreetAddress(""); */
-
-
-
-
+		setStreetAddress("");
 
 
 	return (
 		<div className="container">
-			<form>
+			<form onSubmit={handleSubmit}>
 				<div className="mb-3">
 					<label htmlFor="inputName" className="form-label"><em>Full Name</em></label>
 					<input 
 					type="text"
 					className="form-control"
-					id="inputName"
-					aria-describedby="nameHelp"
+					id="exampleInputEmail"
+					aria-describedby="emailHelp"
 					value={fullname} //asignar valor
 					onChange={e => setFullName(e.target.value)}
 					placeholder="Jhon Wick"
@@ -47,12 +42,11 @@ export const Demo = () => {
 				</div>
 
 				<div className="mb-3">
-					<label htmlFor="emailAddress" className="form-label"><em>Email</em></label>
+					<label htmlFor="exampleinputPassword" className="form-label"><em>Email</em></label>
 					<input 
 					type="email"
 					className="form-control"
-					id="inputEmail"
-					aria-describedby="emailHelp"
+					id="exampleInputPassword"
 					value={emailAddress} //asignar valor
 					onChange={e => setEmailAddress(e.target.value)}
 					placeholder="Jhon@noemail.com"
@@ -60,12 +54,11 @@ export const Demo = () => {
 					
 				</div>
 				<div className="mb-3">
-					<label htmlFor="emailAddress" className="form-label"><em>Phone Number</em></label>
+					<label htmlFor="exampleInputPassword" className="form-label"><em>Phone Number</em></label>
 					<input 
-					type="numbers"
+					type="text"
 					className="form-control"
-					id="inputPhoneNumber"
-					aria-describedby="phoneNumberHelp"
+					id="exampleInputPassword"
 					value={phoneNumber} //asignar valor
 					onChange={e => setPhoneNumber(e.target.value)}
 					placeholder="666.222.222"
@@ -78,7 +71,6 @@ export const Demo = () => {
 					type="text"
 					className="form-control"
 					id="streetAddress"
-					aria-describedby="addressHelp"
 					value={streetAddress} //asignar valor
 					onChange={e => setStreetAddress(e.target.value)}
 					placeholder="c/ 34 san jose spain"
@@ -86,10 +78,11 @@ export const Demo = () => {
 					
 				</div>
 			</form>
+			//no se guardan los datos...//
 			<button type="submit" className="btn btn-primary">Save</button>
 			<br/>
-
-			<button onClick={() => console.log(fullname)}
+				//no me funciona este boton....///
+			<button onClick={() => console.log(fullname, emailAddress, phoneNumber, streetAddress)}>Mostrar datos</button>
 
 				  <Link to="/">
 				<button className="btn btn-link">or get back to contacts.</button>
