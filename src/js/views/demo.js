@@ -7,23 +7,23 @@ import "../../styles/demo.css";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
-	const {fullname, setFullName} = useState ("");
-	const {emailAddress, setEmailAddress} = useState ("");
-	const {phoneNumber, setPhoneNumber} = useState ("");
-	const {streetAddress, setStreetAddress} = useState ("");
+	const [fullName, setFullName] = useState ("");
+	const [emailAddress, setEmailAddress] = useState ("");
+	const [phoneNumber, setPhoneNumber] = useState ("");
+	const [streetAddress, setStreetAddress] = useState ("");
 
-	const handleSubmit = e =>
+	const handleSubmit = e => {
 		e.preventDefault();//este no siempre hace falta con React
-		actions.createContact(fullname, emailAddress, streetAddress, phoneNumber);
-
+		actions.createContact(fullName, emailAddress, streetAddress, phoneNumber);
 		// NO VEO INFORMACION CON EL CONSOLE.LOG...
-		/* console.log(fullname); 'Hola' */
-		actions.addContact(fullname,emailAddress,phoneNumber,streetAddress);
+		console.log(fullName);
+		
+		/* actions.addContact(fullName,emailAddress,phoneNumber,streetAddress); */
 		setFullName("");//limpiar input
 		setEmailAddress("");
 		setPhoneNumber("");
 		setStreetAddress("");
-
+	}
 
 	return (
 		<div className="container">
@@ -35,7 +35,7 @@ export const Demo = () => {
 					className="form-control"
 					id="exampleInputEmail"
 					aria-describedby="emailHelp"
-					value={fullname} //asignar valor
+					value={fullName} //asignar valor
 					onChange={e => setFullName(e.target.value)}
 					placeholder="Jhon Wick"
 					/>
@@ -77,12 +77,13 @@ export const Demo = () => {
 					/>
 					
 				</div>
+				<button type="submit" className="btn btn-primary">Save</button>
 			</form>
-			//no se guardan los datos...//
-			<button type="submit" className="btn btn-primary">Save</button>
+			
+			
 			<br/>
 				//no me funciona este boton....///
-			<button onClick={() => console.log(fullname, emailAddress, phoneNumber, streetAddress)}>Mostrar datos</button>
+			<button onClick={() => console.log(fullName, emailAddress, phoneNumber, streetAddress)}>Mostrar datos</button>
 
 				  <Link to="/">
 				<button className="btn btn-link">or get back to contacts.</button>
