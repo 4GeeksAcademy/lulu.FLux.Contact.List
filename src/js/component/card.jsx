@@ -12,11 +12,13 @@ const Card = (props) => {
         <p>{props.email}</p>
         <p>{props.phoneNumber}</p>
         <p>{props.address}</p>
+        <Link to={`/editForm/${props.id}`}>
+				<button className="btn btn-link">or get back to contacts.</button>
+			</Link>
+
+        {/* <button class='btn btn-danger' onClick={() => {actions.editContact(props.id)}}>Editar Contacto</button> */}
+
       </div>
-
-      //boton aun no conectado al edit fetch, need const...
-
-      <button class='btn btn-warning' onClick={() => {actions.(props.${id})}}>Editar</button>
 
       <button class='btn btn-danger' onClick={() => {actions.deleteContact(props.id)}}>Borrar</button>
 
