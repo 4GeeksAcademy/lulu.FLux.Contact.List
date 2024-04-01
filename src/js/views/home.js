@@ -12,18 +12,26 @@ export const Home = () => {
 		console.log(store.contacts);
 
 }, []);
+
+useEffect(() => {
+	console.log(store.contacts);
+	
+
+}, [store.contacts]);
 return (
 	<div className="text-center mt-5">
-	  {store.contacts.map((item, index) => (
+
+	   {store.contacts?.length > 0 ?
+		store.contacts.map((item, index) => (
 		<Card
-		  nombre={item.full_name}
+		  nombre={item.name}
 		  email={item.email}
 		  phoneNumber={item.phone}
 		  address={item.address}
 		  key={index}
 		  id={item.id}
 		/>
-	  ))}
+	  )): "no hay contacto"} 
 
 	</div>
 )};

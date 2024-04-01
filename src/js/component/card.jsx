@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
   const {store, actions}= useContext(Context)
@@ -20,7 +21,7 @@ const Card = (props) => {
 
       </div>
 
-      <button class='btn btn-danger' onClick={() => {actions.deleteContact(props.id)}}>Borrar</button>
+      <button className='btn btn-danger' onClick={() => {actions.deleteContact(props.id)}}>Borrar</button>
 
     </div>
 )

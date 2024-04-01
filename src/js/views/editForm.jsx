@@ -92,9 +92,9 @@ export const EditForm = () => {
 			
 			<br/>
 
-				  <Link to="/">
+				  {<Link to="/">
 				<button className="btn btn-link">or get back to contacts.</button>
-			</Link>
+			</Link>}
 		
 		</div>
 	);
